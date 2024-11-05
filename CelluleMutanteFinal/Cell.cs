@@ -17,10 +17,11 @@ namespace CelluleMutanteFinal
             size = 10;
             color = Color.Black;
         }
-        public void Mutation()
+        public Color Mutation()
         {
             size += 5;
             color = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
+            return color;
         }
     }
 }

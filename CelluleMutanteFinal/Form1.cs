@@ -16,6 +16,7 @@ namespace CelluleMutanteFinal
         Panel pnl_main;
         Button btn_simulation;
         Cell cell;
+        Timer MyTimer;
 
         public Form1()
         {
@@ -38,6 +39,10 @@ namespace CelluleMutanteFinal
             pnl_main.Paint += new PaintEventHandler(pnl_main_Paint);
             //Cell
             cell = new Cell();
+            //timer
+            MyTimer = new Timer();
+            MyTimer.Interval = (600);
+            MyTimer.Tick += new EventHandler(UpdateCell);
 
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -51,14 +56,22 @@ namespace CelluleMutanteFinal
         {
             var g = e.Graphics;
             g.Clear(pnl_main.BackColor);
-            SolidBrush coloredBrush = new SolidBrush(Color.Black);
+            SolidBrush coloredBrush = new SolidBrush(cell.Mutation());
             g.FillEllipse(coloredBrush, pnl_main.Width / 2, pnl_main.Width / 2, 10, 10);
             g.Dispose();
-           
         }
         private void btn_simulation_Click(object sender, EventArgs e)
         {
             MessageBox.Show("La simulation commence");
+            MyTimer.Start();
+        }
+
+        private void UpdateCell(object sender, EventArgs e)
+        {
+            // instruction pour faire muter la cellule
+            // AJOUTER LA BONNE INSTRUCTION ICI
+            //Mise à jour de l’affichage
+            this.Refresh();
         }
 
     }
