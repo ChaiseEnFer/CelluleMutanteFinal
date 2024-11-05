@@ -56,8 +56,8 @@ namespace CelluleMutanteFinal
         {
             var g = e.Graphics;
             g.Clear(pnl_main.BackColor);
-            SolidBrush coloredBrush = new SolidBrush(cell.Mutation());
-            g.FillEllipse(coloredBrush, pnl_main.Width / 2, pnl_main.Width / 2, 10, 10);
+            SolidBrush coloredBrush = new SolidBrush(cell.color);
+            g.FillEllipse(coloredBrush, pnl_main.Width / 2 - cell.size/2, pnl_main.Width / 2 - cell.size/2, cell.size, cell.size);
             g.Dispose();
         }
         private void btn_simulation_Click(object sender, EventArgs e)
@@ -68,9 +68,8 @@ namespace CelluleMutanteFinal
 
         private void UpdateCell(object sender, EventArgs e)
         {
-            // instruction pour faire muter la cellule
-            // AJOUTER LA BONNE INSTRUCTION ICI
-            //Mise à jour de l’affichage
+
+            cell.Mutation();
             this.Refresh();
         }
 
