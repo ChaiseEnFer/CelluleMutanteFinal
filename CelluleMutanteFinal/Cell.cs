@@ -113,6 +113,7 @@ namespace CelluleMutanteFinal
                         break;
                     case "TGT":
                         compteurBLack += 1;
+
                         break;
 
                 }
