@@ -38,7 +38,7 @@ namespace CelluleMutanteFinal
             pnl_main.Anchor = AnchorStyles.None;
             pnl_main.Paint += new PaintEventHandler(pnl_main_Paint);
             //Cell
-            cell = new Cell();
+            cell = new Cell("TGT");
             //timer
             MyTimer = new Timer();
             MyTimer.Interval = (600);
